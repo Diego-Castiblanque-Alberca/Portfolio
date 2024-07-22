@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './identidy-card.component.html',
-  styleUrl: './identidy-card.component.scss'
+  styleUrl: './identidy-card.component.scss',
 })
-export class IdentidyCardComponent {
-
-}
+export class IdentidyCardComponent {}

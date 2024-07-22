@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './animate-bands.component.html',
-  styleUrl: './animate-bands.component.scss'
+  styleUrl: './animate-bands.component.scss',
 })
-export class AnimateBandsComponent {
-
-}
+export class AnimateBandsComponent {}
