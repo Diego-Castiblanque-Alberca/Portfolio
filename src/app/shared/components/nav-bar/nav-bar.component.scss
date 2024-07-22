@@ -55,13 +55,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 25px;
+    padding: 5px 30px;
     width: 120px;
     height: 38px;
     background-color: $color-background1;
     border-radius: 0px 0px 25px 25px;
+
     li:nth-of-type(n+3) {
-       display:none;
+        display: none;
     }
 }
 
@@ -81,8 +82,8 @@
 }
 
 .nav-bar-menu-icon-close {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
 }
 
 .nav-bar-menu-icon-close-hidden {
@@ -94,14 +95,100 @@
 }
 
 .nav-bar-reset {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 28px;
     height: 27px;
 }
 
-.nav-bar-link {
-   
+@media screen and (min-width: 576px) {
+    .nav-bar-menu-list {
+        gap: 80px;
+    }
+    
+    .nav-bar-menu-link {
+        font-size: 30px;
+        letter-spacing: 4.2px;
+    }
+    
+    .nav-bar-menu-list-space {
+        width: 42.5px;
+        height: 5px;
+    }
+
+    .nav-bar-list {
+        width: 133px;
+        height: 44px;
+    }
+
+    .nav-bar-menu-icon-open {
+        width: 23px;
+        height: 18px;
+    }
+
+    .nav-bar-menu-icon-close {
+        width: 20px;
+        height: 20px;
+    }
+
+    .nav-bar-reset {
+        width: 32px;
+        height: 31px;
+    }
+
 }
-.nav-bar-space {
-   
+
+@media screen and (min-width: 768px) {
+    .nav-bar-list {
+        width: auto;
+        height: auto;
+        padding: 5px 30px;
+        gap: 50px;
+
+        li:nth-of-type(1) {
+            display: none;
+        }
+
+        li:nth-of-type(n+3) {
+            display: inline-block;
+        }
+    }
+
+    .nav-bar-link {
+        font-family: 'Montserrat', sans-serif;
+        color: $color-routerLinks;
+        font-family: Montserrat;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 2.8px;
+    }
+    
+    .nav-bar-space {
+        border: 1px solid $color-tittle-icons;
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+    .nav-bar-link {
+        font-size: 16px;
+        letter-spacing: 3.2px;
+    }
+    .nav-bar-reset {
+        width: 35px;
+        height: 34px;
+    }
+    
+}
+
+@media screen and (min-width: 1920px) {
+    .nav-bar-link {
+        font-size: 18px;
+        letter-spacing: 3.6px;
+    }
+    .nav-bar-reset {
+        width: 40px;
+        height: 39px;
+    }
 }
