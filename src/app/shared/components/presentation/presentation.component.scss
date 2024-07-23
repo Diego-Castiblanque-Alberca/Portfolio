@@ -1,21 +1,12 @@
-.presentation-container {
-    position: relative;
+@use '../../styles/variables.scss' as *;
+.presentation-container {  
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 60px;
+    width: 95dvw;
+    background: url(../../../../assets/images/presentation-background-vertical.png) no-repeat center center;
+    background-size: cover;
+    padding: 180px 15px 30px;
     border-radius: 30px;
-    // background: url(../../../../assets/images/presentation-background.png) no-repeat center center;
-}
-.presentation-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url(../../../../assets/images/presentation-background.png) no-repeat ;
-    background-size: fit;
-    transform: rotate(-90deg);
-    z-index: 0;
 }
