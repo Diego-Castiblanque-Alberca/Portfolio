@@ -1,4 +1,4 @@
-<div class="nav-bar-container" >
+<div class="nav-bar-container">
     <div class="nav-bar-menu" [ngClass]="{ 'nav-bar-menu-open' : isOpen, 'nav-bar-menu-close' : !isOpen }">
         <ul class="nav-bar-menu-list" >
             <li>
@@ -20,7 +20,7 @@
     </div>
     <nav class="nav-bar">
         <ul class="nav-bar-list" [ngClass]="{'nav-bar-list-open' : isOpen}">
-            <li (click)="openMenu()" (keyup.enter)="openMenu()" role="button" tabindex="0">
+            <li (click)="openMenu()" (keyup.enter)="openMenu()" role="button" tabindex="0" class="nav-bar-list-menu-icon">
                 <img src="assets/images/icon-menu-open.svg" alt="icon-open-menu"
                     [ngClass]="{'nav-bar-menu-icon-open' : !isOpen, 'nav-bar-menu-icon-open-hidden' : isOpen}" />
                 <img src="assets/images/icon-menu-close.svg" alt="icon-close-menu"

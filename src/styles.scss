@@ -2,10 +2,10 @@
 
 /* Css reset */
 
-* { margin: 0; padding: 0; position:relative;}
+* { margin: 0; padding: 0;}
 *, *::before, *::after { box-sizing: border-box; }
 
-body { min-height: 100dvh; }
+body { min-height: 100dvh;}
 input, button, textarea, select { font: inherit; }
 
 ul, ol { list-style: none; }
