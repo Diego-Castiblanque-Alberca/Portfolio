@@ -1,5 +1,6 @@
 @use '../../styles/variables.scss' as *;
-.presentation-container {  
+
+.presentation-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,6 +8,27 @@
     width: 95dvw;
     background: url(../../../../assets/images/presentation-background-vertical.png) no-repeat center center;
     background-size: cover;
-    padding: 180px 15px 30px;
+    padding: 0 15px 50px;
     border-radius: 30px;
+}
+
+@media screen and (min-width: 575px) {
+    .presentation-container {
+        gap: 80px;
+    }
+}
+
+// @media screen and (min-width: 768px) {}
+
+@media screen and (min-width: 992px) {
+    .presentation-container{
+        flex-direction: row;
+        justify-content: center; // Cambiar a estart cuando se metan las bandas
+        align-items: center;
+        min-height: 95dvh;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    // 
 }

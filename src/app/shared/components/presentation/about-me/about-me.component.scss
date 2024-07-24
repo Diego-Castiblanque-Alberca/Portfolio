@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 0px;
+    padding: 30px;
     gap: 20px;
     font-family: 'Montserrat', sans-serif;
     max-width: 376px;
@@ -29,14 +29,39 @@
 .about-me-info {
     display: flex;
     flex-direction: column;
-    padding: 0px 20px 0px 20px;
+   
     gap: 12px;
     color: $color-text1;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 300;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.7px;
 
     span{
         font-weight: 500;
+    }
+}
+
+@media screen and (min-width: 768px) {
+   
+    .about-me-container {
+        max-width: 400px;
+    }
+    
+    .about-me-title {
+        gap: 12px;
+        font-size: 22px;
+        letter-spacing: 4.4px;
+    }
+    
+    .about-me-info {
+        display: flex;
+        flex-direction: column; 
+        gap: 16px;
+        font-size: 16px; 
+        letter-spacing: 0.8px;
+        
+        span{
+            font-weight: 500;
+        }
     }
 }

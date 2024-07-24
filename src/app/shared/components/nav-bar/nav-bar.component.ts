@@ -14,8 +14,5 @@ export class NavBarComponent {
   constructor() {}
   openMenu() {
     this.isOpen = !this.isOpen;
-    if (this.isOpen) {
-      document.body.style.overflow = 'hidden';
-    }
   }
 }
