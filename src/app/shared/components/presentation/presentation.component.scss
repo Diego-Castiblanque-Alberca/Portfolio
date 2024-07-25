@@ -24,11 +24,22 @@
     .presentation-container{
         flex-direction: row;
         justify-content: center; // Cambiar a estart cuando se metan las bandas
-        align-items: center;
+        align-items: flex-start;
         min-height: 95dvh;
+        padding: 150px 30px;
+        
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .presentation-container{
+        padding: 160px 50px;
+        gap: 120px;
     }
 }
 
 @media screen and (min-width: 1920px) {
-    // 
+    .presentation-container{
+        gap: 150px;
+    }
 }

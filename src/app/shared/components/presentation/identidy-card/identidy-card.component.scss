@@ -114,11 +114,83 @@
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {}
+
+
+@media screen and (min-width: 992px) {
+    .identity-card-container {
+        padding-top: 120px;
+    }
+}
+@media screen and (min-width: 1300px) {
+    .identity-card-container {
+        padding-top: 180px;
+    }
     
+    .identity-card-photo-container {
+        width: 200px;
+        height: 201px; overflow: hidden;
+        bottom: 215px;
+    }
+    
+    .identity-card-info-container {
+        font-size: 28px;
+        padding: 65px 50px;
+        letter-spacing: 2.7px;
+        gap: 20px;
+    }
+    
+    .identity-card-info-subcontainer {
+        gap: 5px;
+    }
+    
+    .identity-card-button {
+        border: 2px solid $color-tittle-icons;
+        padding-right: 8px;
+    
+        p {
+            font-size: 16px;
+            letter-spacing: 0.8px;
+            padding: 10px 12px;
+        }
+    
+    }
+    
+    .identity-card-button-container-icon {
+        width: 30px;
+        height: 30px;
+    }
 }
 
-
-@media screen and (min-width: 992px) {}
-
-@media screen and (min-width: 1920px) {}
+@media screen and (min-width: 1920px) {
+    .identity-card-container {
+        padding-top: 180px;
+    }
+    
+    .identity-card-photo-container {
+        width: 240px;
+        height: 241px; 
+        border-radius: 160px;
+        bottom: 290px;
+    }
+    
+    .identity-card-info-container {
+        font-size: 36px;
+        padding: 90px 65px;
+        letter-spacing: 3.6px;
+        gap: 26px;
+    }
+    .identity-card-button {
+        padding-right: 10px;
+        p {
+            font-size: 24px;
+            letter-spacing: 1.2px;
+            padding: 10px 16px;
+        }
+    }
+    
+    .identity-card-button-container-icon {
+        width: 36px;
+        height: 36px;
+    }
+}

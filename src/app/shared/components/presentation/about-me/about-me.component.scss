@@ -34,7 +34,7 @@
     color: $color-text1;
     font-size: 14px;
     font-weight: 300;
-    letter-spacing: 0.7px;
+    letter-spacing: 1.4px;
 
     span{
         font-weight: 500;
@@ -58,10 +58,52 @@
         flex-direction: column; 
         gap: 16px;
         font-size: 16px; 
-        letter-spacing: 0.8px;
+        letter-spacing: 1.6px;
         
         span{
             font-weight: 500;
         }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .about-me-container {
+        max-width: 500px;
+        padding: 40px;
+    }
+}
+@media screen and (min-width: 1300px) {
+    .about-me-container {
+        max-width: 500px;
+        padding: 45px;
+    }
+    
+    .about-me-title {
+       
+        font-size: 26px;
+        letter-spacing: 4.6px;
+    }
+    
+    .about-me-info {
+        gap: 16px;
+        font-size: 18px; 
+        letter-spacing: 1.6px;
+    }
+}
+@media screen and (min-width: 1920px) {
+    .about-me-container {
+        max-width: 650px;
+        padding: 50px 55px;
+    }
+    
+    .about-me-title {
+        font-size: 32px;
+        letter-spacing: 6,2px;
+    }
+    
+    .about-me-info {
+        gap: 16px;
+        font-size: 20px; 
+        letter-spacing: 4px;
     }
 }
