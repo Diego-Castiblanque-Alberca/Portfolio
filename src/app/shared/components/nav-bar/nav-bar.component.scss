@@ -100,7 +100,7 @@
     align-items: center;
 }
 .nav-bar-icon-reset {
-    width:clamp(1.75rem, 1vw + 1.55rem, 2rem);;
+    width:clamp(1.75rem, 0.8vw + 1.5rem, 2.5rem);
     height: auto;
 }
 
@@ -110,9 +110,7 @@
         display: none;
     }
     .nav-bar-list {
-        width: auto;
-        height: auto;
-        padding: 5px 30px;
+        padding: 6px 30px;
         gap: 50px;
 
         li:nth-of-type(1) {
@@ -127,39 +125,13 @@
     .nav-bar-link {
         font-family: 'Montserrat', sans-serif;
         color: $color-routerLinks;
-        font-family: Montserrat;
-        font-size: 14px;
+        font-size: clamp(0.875rem, 0.9vw + 0.28rem, 1.25rem);;
         font-weight: 400;
-        letter-spacing: 2.8px;
+        letter-spacing: 0.2em;
     }
 
     .nav-bar-space {
         border: 1px solid $color-tittle-icons;
     }
 
-}
-
-@media screen and (min-width: 992px) {
-    .nav-bar-link {
-        font-size: 16px;
-        letter-spacing: 3.2px;
-    }
-
-    .nav-bar-reset {
-        width: 35px;
-        height: 34px;
-    }
-
-}
-
-@media screen and (min-width: 1920px) {
-    .nav-bar-link {
-        font-size: 18px;
-        letter-spacing: 3.6px;
-    }
-
-    .nav-bar-reset {
-        width: 40px;
-        height: 39px;
-    }
 }
