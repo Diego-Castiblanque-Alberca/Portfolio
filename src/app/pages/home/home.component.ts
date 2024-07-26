@@ -7,8 +7,6 @@ import { PresentationComponent } from '../../shared/components/presentation/pres
   standalone: true,
   imports: [NavBarComponent, CommonModule, PresentationComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
-export class HomeComponent {
-
-}
+export class HomeComponent {}

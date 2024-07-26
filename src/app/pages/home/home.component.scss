@@ -8,7 +8,6 @@
     background-color: $color-background1;
     min-height: 100dvh;
     min-width: 100dvw;
-    padding: 15px 0;
 }
 
 .home-sub-container1 {
@@ -18,21 +17,8 @@
     gap: 60px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {}
 
-    .home-container {
-        padding: 20px 0;
-    }
-}
-@media screen and (min-width: 998px) {
+@media screen and (min-width: 998px) {}
 
-    .home-container {
-        padding: 23px 0;
-    }
-}
-@media screen and (min-width: 1920px) {
-
-    .home-container {
-        padding: 28px 0;
-    }
-}
+@media screen and (min-width: 1920px) {}

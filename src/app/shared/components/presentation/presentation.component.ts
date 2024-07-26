@@ -7,8 +7,6 @@ import { AboutMeComponent } from './about-me/about-me.component';
   standalone: true,
   imports: [IdentidyCardComponent, AboutMeComponent],
   templateUrl: './presentation.component.html',
-  styleUrl: './presentation.component.scss'
+  styleUrl: './presentation.component.scss',
 })
-export class PresentationComponent {
-
-}
+export class PresentationComponent {}

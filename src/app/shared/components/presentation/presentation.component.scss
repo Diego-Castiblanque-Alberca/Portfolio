@@ -10,11 +10,13 @@
     background-size: cover;
     padding: 0 15px 50px;
     border-radius: 30px;
+    margin-top: 15px;
 }
 
 @media screen and (min-width: 575px) {
     .presentation-container {
         gap: 80px;
+        margin-top: 18px;
     }
 }
 
@@ -26,20 +28,22 @@
         justify-content: center; // Cambiar a estart cuando se metan las bandas
         align-items: flex-start;
         min-height: 95dvh;
-        padding: 150px 30px;
-        
+        padding: 120px 30px;
+        margin-top: 20px;
     }
 }
 
 @media screen and (min-width: 1300px) {
     .presentation-container{
-        padding: 160px 50px;
+        padding: 120px 50px;
         gap: 120px;
+       
     }
 }
 
 @media screen and (min-width: 1920px) {
     .presentation-container{
         gap: 150px;
+        margin-top: 22px;
     }
 }

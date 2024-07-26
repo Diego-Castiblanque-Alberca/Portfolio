@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -14,5 +14,10 @@ export class NavBarComponent {
   constructor() {}
   openMenu() {
     this.isOpen = !this.isOpen;
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    const window = event.target as Window;
+    window.innerWidth > 768 && (this.isOpen = false);
   }
 }
