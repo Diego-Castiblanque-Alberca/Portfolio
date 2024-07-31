@@ -1,13 +1,12 @@
 <div class="about-me-container">
-    <h2 class="about-me-title"><span>About</span><span>Me</span></h2>
+    <h2 [class.shining]="isTyppingNow" class="about-me-title"><span>About</span><span>Me</span></h2>
     <section class="about-me-info">
-        <p>Hard work, perseverance, frustration tolerance and a pinch of ambition, are the
-            ingredients of the recipe I have followed to build my profile as a <span>Junior Full Stack Web Develloper</span>. </p>
-        <p>Yes, a lot of Full Stack, but do you know how to design? First of all, I love
-            all the fellow designers I've had. Maybe that's why sometimes I like to design and spend hours and hours
-            with Figma. Self-love, Who knows.</p>
-        <p> I try to keep my profile in balance, developing projects from scratch. Starting
-            with the design of the interface and the subsequent development of the application both frontend and
-            backend. </p>
+        <p>
+            <span #span0 [class.cursor]="spans[0].isTypping">{{spans[0].text}}</span>
+            <span class="strongSpan" #span1 [class.cursor]="spans[1].isTypping">{{spans[1].text}}</span>
+            <span #span2 [class.cursor]="spans[2].isTypping">{{spans[2].text}}</span>
+        </p>
+        <p><span #span3 [class.cursor]="spans[3].isTypping">{{spans[3].text}}</span></p>
+        <p><span #span4 [class.cursor]="spans[4].isTypping">{{spans[4].text}}</span></p>
     </section>
 </div>
