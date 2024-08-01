@@ -3,35 +3,41 @@
 @keyframes shining {
     0% {
         text-shadow:
-        0 0 1px $color-tittle-icons;
+            0 0 1px $color-tittle-icons;
         color: $color-tittle-icons;
     }
+
     20% {
         text-shadow: 0 0 3px;
-        color:$color-tittle-icons;
-    }
-    40% {
-        text-shadow:
-        0 0 4.5px $color-text1;
-        color: $color-text1;
-    }
-    50% {
-        text-shadow:
-        0 0 8px $color-text1;
-        color: $color-text1;
-    }
-    60% {
-        text-shadow:
-        0 0 4.5px $color-tittle-icons;
         color: $color-tittle-icons;
     }
+
+    40% {
+        text-shadow:
+            0 0 4.5px $color-text1;
+        color: $color-text1;
+    }
+
+    50% {
+        text-shadow:
+            0 0 8px $color-text1;
+        color: $color-text1;
+    }
+
+    60% {
+        text-shadow:
+            0 0 4.5px $color-tittle-icons;
+        color: $color-tittle-icons;
+    }
+
     80% {
         text-shadow: 0 0 3px;
         color: $color-tittle-icons;
     }
+
     100% {
         text-shadow:
-        0 0 1px $color-tittle-icons;
+            0 0 1px $color-tittle-icons;
         color: $color-tittle-icons;
     }
 }
@@ -39,16 +45,21 @@
 
 .about-me-container {
     border-radius: 25px;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.85);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: clamp(1.875rem, 1.25vw + 1.6rem, 3.125rem);
     gap: 20px;
     font-family: 'Montserrat', sans-serif;
-    max-width: clamp(22.5rem, 18.8vw + 18rem, 40.625rem);
-    min-width: clamp(18.75rem, 12vw + 16rem, 31.25rem);
+    // max-width: clamp(18.375rem, 26.9vw + 12rem, 28.75rem);
+    width: clamp(18.375rem, 22.85vw + 13.2rem, 40.625rem);
     // min-height: clamp(18.75rem, 20vw + 13rem, 37.5rem);
+    -webkit-box-shadow: inset 0px 0px 20px 0px rgba(100,222,132,1);
+    -moz-box-shadow: inset 0px 0px 20px 0px rgba(100,222,132,1);
+    box-shadow: inset 0px 0px 20px 0px rgba(100,222,132,1);
+
+
 }
 
 .about-me-title {
@@ -64,7 +75,10 @@
         font-weight: 600;
     }
 }
-
+.about-me-info-container{
+    position: relative;
+    width: 100%;
+}
 .about-me-info {
     display: flex;
     flex-direction: column;
@@ -74,9 +88,18 @@
     font-size: clamp(0.875rem, 0.3vw + 0.77rem, 1.125rem);
     font-weight: 300;
     letter-spacing: 0.1em;
-    
-    p { text-wrap: wrap; }
 
+    p {
+        text-wrap: wrap;
+    }
+
+}
+
+.about-me-info-copy-hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
 }
 
 .strongSpan {
@@ -90,3 +113,4 @@
 .shining {
     animation: shining 1s infinite;
 }
+

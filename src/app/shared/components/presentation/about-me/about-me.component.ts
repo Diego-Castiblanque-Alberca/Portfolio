@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TextTypping } from './text-typping';
 
@@ -9,13 +9,9 @@ import { TextTypping } from './text-typping';
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.scss',
 })
-export class AboutMeComponent implements OnInit {
-  @ViewChild('span0', { static: true }) span0!: ElementRef;
-  @ViewChild('span1', { static: true }) span1!: ElementRef;
-  @ViewChild('span2', { static: true }) span2!: ElementRef;
-  @ViewChild('span3', { static: true }) span3!: ElementRef;
-  @ViewChild('span4', { static: true }) span4!: ElementRef;
-  @ViewChild('span5', { static: true }) span5!: ElementRef;
+export class AboutMeComponent implements OnInit, AfterViewInit {
+  @ViewChild('about_me_info_with_dimensions', { static: true }) containerInfoHidden!: ElementRef;
+  @ViewChild('about_me_info_without_dimensions', { static: true }) containerInfo!: ElementRef;
 
   spans: TextTypping[];
   isTyppingNow: boolean;
@@ -23,11 +19,11 @@ export class AboutMeComponent implements OnInit {
 
   constructor() {
     this.spans = [
-      { element: this.span0, isTypping: false, isWaitting: true, text: '' },
-      { element: this.span1, isTypping: false, isWaitting: true, text: '' },
-      { element: this.span2, isTypping: false, isWaitting: true, text: '' },
-      { element: this.span3, isTypping: false, isWaitting: true, text: '' },
-      { element: this.span4, isTypping: false, isWaitting: true, text: '' },
+      { isTypping: false, isWaitting: true, text: '' },
+      { isTypping: false, isWaitting: true, text: '' },
+      { isTypping: false, isWaitting: true, text: '' },
+      { isTypping: false, isWaitting: true, text: '' },
+      { isTypping: false, isWaitting: true, text: '' },
     ];
     this.isTyppingNow = false;
     this.textContent = [
@@ -40,6 +36,14 @@ export class AboutMeComponent implements OnInit {
   }
   ngOnInit() {
     this.TypeWriter();
+  }
+  ngAfterViewInit() {
+    this.resizeContainerInfo();
+  }
+
+  resizeContainerInfo() {
+    const { height } = this.containerInfoHidden.nativeElement.getBoundingClientRect();
+    this.containerInfo.nativeElement.style.height = `${height}px`;
   }
   delay(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -87,5 +91,9 @@ export class AboutMeComponent implements OnInit {
     await this.delay(2000);
     this.isTyppingNow = false;
     this.spans[this.spans.length - 1].isWaitting = false;
+  }
+  @HostListener('window:resize')
+  onResize() {
+    this.resizeContainerInfo();
   }
 }

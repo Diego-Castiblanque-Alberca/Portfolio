@@ -1,7 +1,7 @@
 @use '../../../styles/variables.scss' as *;
 
 .identity-card-container {
-    padding-top: clamp(11.25rem, 8.5vw + 9rem, 13.75rem);;
+    padding-top: clamp(11.25rem, 8.5vw + 9rem, 13.75rem);
 
 }
 
@@ -11,7 +11,7 @@
     top: 0;
     left: 50%;
     transform: translate(-50%, -80%);
-    width: clamp(9.375rem, 5.5vw + 8rem, 12.5rem);;
+    width: clamp(9.375rem, 5.5vw + 8rem, 12.5rem);
     aspect-ratio: 1/1;
     overflow: hidden;
     border-radius: 100%;
@@ -24,17 +24,19 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: clamp(1rem, 0.41vw + 0.9rem, 1.25rem);;
+    gap: clamp(1rem, 0.41vw + 0.9rem, 1.25rem);
     font-family: 'Montserrat', sans-serif;
     color: $color-tittle-icons;
-    font-size: clamp(1.25rem, 0.9vw + 1rem, 1.75rem);;
+    font-size: clamp(1.25rem, 0.9vw + 1rem, 1.75rem);
     font-weight: 400;
     letter-spacing: 0.1em;
     padding: clamp(3.125rem, 1.95vw + 2.71rem, 4.375rem) clamp(1.875rem, 3.3vw + 1rem, 3.75rem);
     border-radius: 25px;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.85);
     width: max-content;
-
+    -webkit-box-shadow: inset 0px 0px 20px 20px rgba(0, 0, 0, 1);
+    -moz-box-shadow: inset 0px 0px 20px 20px rgba(0, 0, 0, 1);
+    box-shadow: inset 0px 0px 20px 20px rgba(0, 0, 0, 1);
 }
 
 .identity-card-info-subcontainer {
@@ -71,7 +73,8 @@
 }
 
 .identity-card-button-container-icon {
-    width: clamp(1.563rem, 0.65vw + 1.39rem, 1.875rem);;
+    width: clamp(1.563rem, 0.65vw + 1.39rem, 1.875rem);
+    ;
     height: auto;
 }
 
