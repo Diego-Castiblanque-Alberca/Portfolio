@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AnimateBandsComponent } from './animate-bands.component';
+import { AnimatedBandComponent } from './animated-band.component';
 
-describe('AnimateBandsComponent', () => {
-  let component: AnimateBandsComponent;
-  let fixture: ComponentFixture<AnimateBandsComponent>;
+describe('AnimatedBandComponent', () => {
+  let component: AnimatedBandComponent;
+  let fixture: ComponentFixture<AnimatedBandComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AnimateBandsComponent],
+      imports: [AnimatedBandComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AnimateBandsComponent);
+    fixture = TestBed.createComponent(AnimatedBandComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

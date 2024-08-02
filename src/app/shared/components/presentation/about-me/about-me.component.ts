@@ -1,4 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild, AfterViewInit, HostListener } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  AfterViewInit,
+  HostListener,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TextTypping } from './text-typping';
 
@@ -10,8 +17,10 @@ import { TextTypping } from './text-typping';
   styleUrl: './about-me.component.scss',
 })
 export class AboutMeComponent implements OnInit, AfterViewInit {
-  @ViewChild('about_me_info_with_dimensions', { static: true }) containerInfoHidden!: ElementRef;
-  @ViewChild('about_me_info_without_dimensions', { static: true }) containerInfo!: ElementRef;
+  @ViewChild('about_me_info_with_dimensions', { static: true })
+  containerInfoHidden!: ElementRef;
+  @ViewChild('about_me_info_without_dimensions', { static: true })
+  containerInfo!: ElementRef;
 
   spans: TextTypping[];
   isTyppingNow: boolean;
@@ -42,7 +51,8 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
   }
 
   resizeContainerInfo() {
-    const { height } = this.containerInfoHidden.nativeElement.getBoundingClientRect();
+    const { height } =
+      this.containerInfoHidden.nativeElement.getBoundingClientRect();
     this.containerInfo.nativeElement.style.height = `${height}px`;
   }
   delay(ms: number) {
