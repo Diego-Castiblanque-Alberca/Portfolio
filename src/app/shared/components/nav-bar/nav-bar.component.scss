@@ -6,7 +6,7 @@
 }
 
 .nav-bar-menu {
-    position: absolute;
+    position: fixed;
     height: 100dvh;
     width: 100dvw;
     background-color: $color-background1;
@@ -14,13 +14,13 @@
 }
 
 .nav-bar-menu-open {
-    transform: translateY(0);
-    transition: transform 0.5s ease-in-out;
+    top: 0;
+    transition: top 0.5s ease-in-out;
 }
 
 .nav-bar-menu-close {
-    transform: translateY(-100dvh);
-    transition: transform 0.5s ease-in-out;
+    top: -100dvh;
+    transition: top 0.5s ease-in-out;
 }
 
 .nav-bar-menu-list {
