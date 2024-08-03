@@ -47,13 +47,18 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
     this.TypeWriter();
   }
   ngAfterViewInit() {
-    this.resizeContainerInfo();
+    /* setTimeout is used to wait for the view to be rendered, 
+     so the dimensions of the hidden element are calculated correctly*/
+    setTimeout(() => {
+      this.resizeContainerInfo();
+    }, 50);
   }
 
   resizeContainerInfo() {
-    const { height } =
-      this.containerInfoHidden.nativeElement.getBoundingClientRect();
+    const height = this.containerInfoHidden.nativeElement.offsetHeight;
+    const width = this.containerInfoHidden.nativeElement.offsetWidth;
     this.containerInfo.nativeElement.style.height = `${height}px`;
+    this.containerInfo.nativeElement.style.width = `${width}px`;
   }
   delay(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));

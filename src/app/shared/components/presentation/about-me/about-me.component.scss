@@ -82,7 +82,6 @@
 .about-me-info {
     display: flex;
     flex-direction: column;
-    width: 100%;
     gap: 14px;
     color: $color-text1;
     font-size: clamp(0.875rem, 0.3vw + 0.77rem, 1.125rem);
@@ -98,7 +97,6 @@
 .about-me-info-copy-hidden {
     position: absolute;
     top: 0;
-    left: 0;
     visibility: hidden;
 }
 
