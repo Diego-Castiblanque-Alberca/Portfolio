@@ -1,22 +1,39 @@
-import { Component, ViewChild, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  OnInit,
+  AfterViewInit,
+  ElementRef,
+  HostListener,
+} from '@angular/core';
 import { AnimatedBandComponent } from './animated-band/animated-band.component';
+import { BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'app-two-animated-bands',
   standalone: true,
   imports: [AnimatedBandComponent],
   templateUrl: './two-animated-bands.component.html',
-  styleUrl: './two-animated-bands.component.scss'
+  styleUrl: './two-animated-bands.component.scss',
 })
-export class TwoAnimatedBandsComponent implements OnInit {
+export class TwoAnimatedBandsComponent implements OnInit, AfterViewInit {
   @ViewChild('containerBands', { static: true }) containerBands!: ElementRef;
   containerRotated: number;
+  lastScrollTop: number;
+  xMovement: BehaviorSubject<number>;
+  isVisible: boolean;
 
   constructor() {
-    this.containerRotated= 0;
+    this.lastScrollTop = 0;
+    this.isVisible = false;
+    this.containerRotated = 0;
+    this.xMovement = new BehaviorSubject<number>(0);
   }
 
   ngOnInit() {
     this.containerRotated = this.getRotationDegrees(this.containerBands);
+  }
+  ngAfterViewInit() {
+    this.checkVisibility(this.containerBands);
   }
   getRotationDegrees(element: ElementRef): number {
     const transform = window.getComputedStyle(element.nativeElement).transform;
@@ -27,5 +44,47 @@ export class TwoAnimatedBandsComponent implements OnInit {
     const angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
     return angle;
   }
-}
+  checkVisibility(element: ElementRef): void {
+    const elementRendered = element.nativeElement.getBoundingClientRect();
+   
 
+    const partiallyVisible =
+      elementRendered.top <
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      elementRendered.bottom > 0 &&
+      elementRendered.left <
+        (window.innerWidth || document.documentElement.clientWidth) &&
+      elementRendered.right > 0;
+
+    const completelyVisible =
+      elementRendered.top >= 0 &&
+      elementRendered.left >= 0 &&
+      elementRendered.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      elementRendered.right <=
+        (window.innerWidth || document.documentElement.clientWidth);
+
+    this.isVisible = partiallyVisible || completelyVisible;
+  }
+
+  calculateScrollMovement(): number {
+    const scrollTop: number = document.documentElement.scrollTop;
+    const scrollAmount: number = scrollTop - this.lastScrollTop;
+    this.lastScrollTop = scrollTop;
+    return scrollAmount;
+  }
+  calculateXMovement(scrollInfo: number): void {
+    this.xMovement.next(
+      Math.abs(this.xMovement.getValue() + scrollInfo * 0.5), //posible abs para que no se mueva en negativo
+    );
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    this.checkVisibility(this.containerBands);
+    const infoScroll = this.calculateScrollMovement();
+    if (this.isVisible) {
+      this.calculateXMovement(infoScroll);
+    }
+  }
+}

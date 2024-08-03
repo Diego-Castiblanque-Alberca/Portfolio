@@ -1,33 +1,32 @@
 @use '../../../../styles/variables.scss' as *;
 
 .animated-band-frame-container {
-    position: relative;
+    display: flex;
     background-color: $color-background2;
-    min-width: 99vw;
+    max-width: 105vw;
     border-top: 5px solid $color-routerLinks;
     border-bottom: 5px solid $color-routerLinks;
+    overflow: hidden;
 }
 
 .animated-band-slider-container {
     display: flex;
-    max-width: 100%;
     gap: 20px;
     padding: 3px 0;
     border-top: 1px solid $color-background1;
     border-bottom: 1px solid $color-background1;
-}
-
-.reverse {
-    flex-direction: row-reverse;
+    // transition: transform 0.1s ease;
+    &.reverse {
+        flex-direction: row-reverse;
+    }
 }
 
 .animated-band-icon-container {
-    flex: 0 0 15px;
+    flex: 0 0 clamp(0.938rem, 0.82vw + 0.75rem, 1.25rem);;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .animated-band-icon{
-    height: auto;
     aspect-ratio: 1/1;
 }

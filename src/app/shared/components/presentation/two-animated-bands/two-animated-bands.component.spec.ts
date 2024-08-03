@@ -8,10 +8,9 @@ describe('TwoAnimatedBandsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TwoAnimatedBandsComponent]
-    })
-    .compileComponents();
-    
+      imports: [TwoAnimatedBandsComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(TwoAnimatedBandsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
