@@ -1,15 +1,16 @@
-@use '../../../styles/variables.scss' as *;
+@use '../../../../styles/variables.scss' as *;
 
 .animated-band-frame-container {
     position: relative;
     background-color: $color-background2;
-    min-width: 100vw;
+    min-width: 99vw;
     border-top: 5px solid $color-routerLinks;
     border-bottom: 5px solid $color-routerLinks;
 }
 
 .animated-band-slider-container {
     display: flex;
+    max-width: 100%;
     gap: 20px;
     padding: 3px 0;
     border-top: 1px solid $color-background1;
@@ -21,12 +22,10 @@
 }
 
 .animated-band-icon-container {
-    width: 15px;
+    flex: 0 0 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: rotate(10deg); //Rotate de icons container with javascript on reference to the band container
-   
 }
 .animated-band-icon{
     height: auto;
