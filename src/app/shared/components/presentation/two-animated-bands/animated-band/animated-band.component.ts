@@ -59,7 +59,6 @@ export class AnimatedBandComponent implements AfterViewInit, OnDestroy {
         this.moveBand(xMovement);
       },
     );
-   
   }
   rotateIcons() {
     this.iconContainer.forEach((icon: ElementRef) => {

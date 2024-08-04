@@ -5,9 +5,10 @@ import {
   AfterViewInit,
   ElementRef,
   HostListener,
+  SecurityContext,
 } from '@angular/core';
 import { AnimatedBandComponent } from './animated-band/animated-band.component';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, TimeoutConfig } from 'rxjs';
 @Component({
   selector: 'app-two-animated-bands',
   standalone: true,
@@ -21,9 +22,11 @@ export class TwoAnimatedBandsComponent implements OnInit, AfterViewInit {
   lastScrollTop: number;
   xMovement: BehaviorSubject<number>;
   isVisible: boolean;
+  totalScroll: number;
 
   constructor() {
     this.lastScrollTop = 0;
+    this.totalScroll = 0;
     this.isVisible = false;
     this.containerRotated = 0;
     this.xMovement = new BehaviorSubject<number>(0);
@@ -46,45 +49,57 @@ export class TwoAnimatedBandsComponent implements OnInit, AfterViewInit {
   }
   checkVisibility(element: ElementRef): void {
     const elementRendered = element.nativeElement.getBoundingClientRect();
-   
 
     const partiallyVisible =
       elementRendered.top <
-        (window.innerHeight || document.documentElement.clientHeight) &&
+      (window.innerHeight || document.documentElement.clientHeight) &&
       elementRendered.bottom > 0 &&
       elementRendered.left <
-        (window.innerWidth || document.documentElement.clientWidth) &&
+      (window.innerWidth || document.documentElement.clientWidth) &&
       elementRendered.right > 0;
 
     const completelyVisible =
       elementRendered.top >= 0 &&
       elementRendered.left >= 0 &&
       elementRendered.bottom <=
-        (window.innerHeight || document.documentElement.clientHeight) &&
+      (window.innerHeight || document.documentElement.clientHeight) &&
       elementRendered.right <=
-        (window.innerWidth || document.documentElement.clientWidth);
+      (window.innerWidth || document.documentElement.clientWidth);
 
     this.isVisible = partiallyVisible || completelyVisible;
   }
 
-  calculateScrollMovement(): number {
+  calculateScrollMovement(): void{
     const scrollTop: number = document.documentElement.scrollTop;
     const scrollAmount: number = scrollTop - this.lastScrollTop;
     this.lastScrollTop = scrollTop;
-    return scrollAmount;
+    this.totalScroll += scrollAmount;
+    console.log(this.totalScroll);
   }
   calculateXMovement(scrollInfo: number): void {
-    this.xMovement.next(
-      Math.abs(this.xMovement.getValue() + scrollInfo * 0.5), //posible abs para que no se mueva en negativo
-    );
+    this.xMovement.next(Math.abs(scrollInfo * 0.5));
   }
+  throttle(mainFunction: (scrollInfo: number) => void, delay: number) {
+    let timerFlag: number | null = null;
+    return (scrollInfo: number) => {
+      if (timerFlag === null) {
+        mainFunction(scrollInfo);
+        console.log('throttle');
+        timerFlag = window.setTimeout(() => {
+          timerFlag = null;
+        }, delay);
+      }
+    };
+  }
+
+  throttledCalculateXmovement = this.throttle(this.calculateXMovement.bind(this), 0);
 
   @HostListener('window:scroll')
   onWindowScroll() {
     this.checkVisibility(this.containerBands);
-    const infoScroll = this.calculateScrollMovement();
+    this.calculateScrollMovement();
     if (this.isVisible) {
-      this.calculateXMovement(infoScroll);
+      this.throttledCalculateXmovement(this.totalScroll);
     }
   }
 }
