@@ -1,4 +1,10 @@
-# Porfolio
+# Personal website with information about me and my projects and contact information.
+
+For the development of this web application I only used Angular 17 with TypeScript, SCSS and HTML.
+
+The deployment of the application was done on GitHub Pages.
+
+URL to website -> 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
 
