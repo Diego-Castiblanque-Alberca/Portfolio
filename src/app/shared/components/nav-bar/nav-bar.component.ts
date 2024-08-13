@@ -12,9 +12,10 @@ export class NavBarComponent {
   isOpen: boolean = false;
 
   constructor() {}
-  openMenu() {
+  toggleMenu() {
     this.isOpen = !this.isOpen;
   }
+
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     const window = event.target as Window;

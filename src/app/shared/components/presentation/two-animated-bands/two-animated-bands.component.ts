@@ -52,54 +52,56 @@ export class TwoAnimatedBandsComponent implements OnInit, AfterViewInit {
 
     const partiallyVisible =
       elementRendered.top <
-      (window.innerHeight || document.documentElement.clientHeight) &&
+        (window.innerHeight || document.documentElement.clientHeight) &&
       elementRendered.bottom > 0 &&
       elementRendered.left <
-      (window.innerWidth || document.documentElement.clientWidth) &&
+        (window.innerWidth || document.documentElement.clientWidth) &&
       elementRendered.right > 0;
 
     const completelyVisible =
       elementRendered.top >= 0 &&
       elementRendered.left >= 0 &&
       elementRendered.bottom <=
-      (window.innerHeight || document.documentElement.clientHeight) &&
+        (window.innerHeight || document.documentElement.clientHeight) &&
       elementRendered.right <=
-      (window.innerWidth || document.documentElement.clientWidth);
+        (window.innerWidth || document.documentElement.clientWidth);
 
     this.isVisible = partiallyVisible || completelyVisible;
   }
-
-  calculateScrollMovement(): void{
+//Calculate the movement of the scroll
+  calculateScrollMovement(): void {
     const scrollTop: number = document.documentElement.scrollTop;
     const scrollAmount: number = scrollTop - this.lastScrollTop;
     this.lastScrollTop = scrollTop;
     this.totalScroll += scrollAmount;
     console.log(this.totalScroll);
   }
+  //Calculate the movement of the band
   calculateXMovement(scrollInfo: number): void {
     this.xMovement.next(Math.abs(scrollInfo * 0.5));
   }
-  throttle(mainFunction: (scrollInfo: number) => void, delay: number) {
-    let timerFlag: number | null = null;
-    return (scrollInfo: number) => {
-      if (timerFlag === null) {
-        mainFunction(scrollInfo);
-        console.log('throttle');
-        timerFlag = window.setTimeout(() => {
-          timerFlag = null;
-        }, delay);
-      }
-    };
-  }
+  // throttle(mainFunction: (scrollInfo: number) => void, delay: number) {
+  //   let timerFlag: number | null = null;
+  //   return (scrollInfo: number) => {
+  //     if (timerFlag === null) {
+  //       mainFunction(scrollInfo);
+  //       console.log('throttle');
+  //       timerFlag = window.setTimeout(() => {
+  //         timerFlag = null;
+  //       }, delay);
+  //     }
+  //   };
+  // }
 
-  throttledCalculateXmovement = this.throttle(this.calculateXMovement.bind(this), 0);
+  // throttledCalculateXmovement = this.throttle(this.calculateXMovement.bind(this), 0);
 
   @HostListener('window:scroll')
   onWindowScroll() {
     this.checkVisibility(this.containerBands);
     this.calculateScrollMovement();
     if (this.isVisible) {
-      this.throttledCalculateXmovement(this.totalScroll);
+      // this.throttledCalculateXmovement(this.totalScroll);
+      this.calculateXMovement(this.totalScroll);
     }
   }
 }

@@ -32,7 +32,6 @@ export class AnimatedBandComponent implements AfterViewInit, OnDestroy {
     this.iterationsArray = [0, 1];
     this.reverse = false;
     this.icons = [
-      '../../../../../assets/images/icons-band/angular.png',
       '../../../../../assets/images/icons-band/aws.png',
       '../../../../../assets/images/icons-band/css.png',
       '../../../../../assets/images/icons-band/github.png',
@@ -43,6 +42,7 @@ export class AnimatedBandComponent implements AfterViewInit, OnDestroy {
       '../../../../../assets/images/icons-band/laravel.png',
       '../../../../../assets/images/icons-band/git.png',
       '../../../../../assets/images/icons-band/mysql.png',
+      '../../../../../assets/images/icons-band/angular.png',
       '../../../../../assets/images/icons-band/npm.png',
       '../../../../../assets/images/icons-band/php.png',
       '../../../../../assets/images/icons-band/docker.png',

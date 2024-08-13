@@ -1,4 +1,7 @@
 @use '../../styles/variables.scss' as *;
+.no-scroll {
+    overflow: hidden;
+}
 
 .nav-bar-container {
     position: relative;

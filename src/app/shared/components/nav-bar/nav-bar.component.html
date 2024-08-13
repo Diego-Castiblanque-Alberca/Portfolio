@@ -2,25 +2,25 @@
     <div class="nav-bar-menu" [ngClass]="{ 'nav-bar-menu-open' : isOpen, 'nav-bar-menu-close' : !isOpen }">
         <ul class="nav-bar-menu-list" >
             <li>
-                <a (click)="openMenu()" href="#about" class="nav-bar-menu-link">About</a>
+                <a (click)="toggleMenu()" href="#about" class="nav-bar-menu-link">About</a>
             </li>
             <li>
                 <img src="assets/images/menu-list-space.svg" class="nav-bar-menu-list-space" alt="espace">
             </li>
             <li>
-                <a (click)="openMenu()"  href="#projets" class="nav-bar-menu-link">Projects</a>
+                <a (click)="toggleMenu()"  href="#projets" class="nav-bar-menu-link">Projects</a>
             </li>
             <li>
                 <img src="assets/images/menu-list-space.svg" class="nav-bar-menu-list-space" alt="espace">
             </li>
             <li>
-                <a (click)="openMenu()" href="#contact" class="nav-bar-menu-link" >Contact</a>
+                <a (click)="toggleMenu()" href="#contact" class="nav-bar-menu-link" >Contact</a>
             </li>
         </ul>
     </div>
     <nav class="nav-bar">
         <ul class="nav-bar-list" [ngClass]="{'nav-bar-list-open' : isOpen}">
-            <li (click)="openMenu()" (keyup.enter)="openMenu()" role="button" tabindex="0" class="nav-bar-list-menu-icon">
+            <li (click)="toggleMenu()" (keyup.enter)="toggleMenu()" role="button" tabindex="0" class="nav-bar-list-menu-icon">
                 <img src="assets/images/icon-menu-open.svg" alt="icon-open-menu"
                     [ngClass]="{'nav-bar-menu-icon-open' : !isOpen, 'nav-bar-menu-icon-open-hidden' : isOpen}" />
                 <img src="assets/images/icon-menu-close.svg" alt="icon-close-menu"
