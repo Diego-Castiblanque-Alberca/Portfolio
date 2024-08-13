@@ -1,4 +1,4 @@
-# Personal website with information about me and my projects and contact information.
+# Personal website with information about me and my projects and contact information (website in development).
 
 ## This web application I only used Angular 17 with TypeScript, SCSS and HTML.
 
