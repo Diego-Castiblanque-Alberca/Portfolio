@@ -1,10 +1,14 @@
-# Personal website with information about me and my projects and contact information.
+# Personal website with information about me and my projects and contact information (website in development).
 
-For the development of this web application I only used Angular 17 with TypeScript, SCSS and HTML.
+## This web application I only used Angular 17 with TypeScript, SCSS and HTML.
 
-The deployment of the application was done on GitHub Pages.
+## The deployment of the application was done on GitHub Pages.
 
-URL to website -> 
+## To see all the work done, I advise you to inspect the website. You will then be able to appreciate the application of responsive design depending on the size of the device. The design changes and mutates accordingly. I advise you to look at the mobile version as the design varies significantly from the desktop version. 
+
+### The website is in constant development, this is only the first version. There are still many functionalities to be implemented. 
+
+URL to website -> https://github.com/Diego-Castiblanque-Alberca/Portfolio_GitHub_Pages/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
 
