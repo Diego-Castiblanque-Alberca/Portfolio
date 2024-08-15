@@ -1,1 +1,9 @@
-<p>bouncing-icons works!</p>
+<div class="bouncing-icons-container" >
+    <ng-container *ngFor="let icon of icons">
+        <div #icon class="bouncing-icon-container">
+            <div class="bouncing-icon-subcontainer">
+                <img [src]="icon" alt="bouncing-icon" class="bouncing-icon">
+            </div>
+        </div>
+    </ng-container>
+</div>
