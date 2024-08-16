@@ -44,6 +44,7 @@
 
 
 .about-me-container {
+    position: relative;
     border-radius: 25px;
     background: rgba(0, 0, 0, 0.85);
     display: flex;
@@ -58,8 +59,6 @@
     -webkit-box-shadow: inset 0px 0px 20px 0px rgba(100,222,132,1);
     -moz-box-shadow: inset 0px 0px 20px 0px rgba(100,222,132,1);
     box-shadow: inset 0px 0px 20px 0px rgba(100,222,132,1);
-
-
 }
 
 .about-me-title {
