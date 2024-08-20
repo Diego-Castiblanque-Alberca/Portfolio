@@ -111,7 +111,7 @@ export class BouncingIconsComponent implements AfterViewInit {
   setSpaceBetweenIcons(direction: Directions) {
     this.iconsElements.forEach((icon, index) => {
       icon.nativeElement.style.zIndex = this.iconsElements.length - index + '';
-      icon.nativeElement.style.transition = 'transform 0.1s';
+      icon.nativeElement.style.transition = 'transform 0.2s';
       if (direction.down && direction.right) {
         icon.nativeElement.style.transform = `translate(-${this.spaceBetween * index}px, -${this.spaceBetween * index}px) `;
       } else if (direction.down && direction.left) {
