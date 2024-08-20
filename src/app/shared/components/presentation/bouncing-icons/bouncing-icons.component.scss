@@ -8,7 +8,9 @@
 @media screen and (min-width: 992px) {
     .bouncing-icons-container{
         display: block;
-        position: relative;
+        position: absolute;
+        top: 10px;
+        left: 10px;
     }
     .bouncing-icon-container{
         display: block;
@@ -31,7 +33,7 @@
     }
     .bouncing-icon{
         // use clamp to make the icon size responsive
-        width: 30px;
+        width: 35px;
     }
 
 }
