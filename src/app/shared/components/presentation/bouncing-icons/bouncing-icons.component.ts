@@ -215,12 +215,13 @@ export class BouncingIconsComponent implements AfterViewInit {
   @HostListener('window:resize', ['$event'])
   onResize() {
     clearInterval(this.setIntervalId);
-    this.moveIcons();
+    this.distanceTravelled = {
+      axisX: 0,
+      axisY: 0,
+    };
+    this.orderCounter = 0;
+    if (window.innerWidth >= 992) {
+      this.moveIcons();
+    }
   }
 }
-//comprobar la distancia del icono a su límite y en función de ello aumentar el espacio entre ellos
-//Investigar como crear una animación de apertura y cierre de los iconos
-//Investigar como crear una animación de movimiento de los iconos
-//Prioridad el tema de crear las animaciones ya que al espacio entre ellos le tengo que poner tiempo y
-// va a interferir en el movimiento si todos son transform translate
-// icon.style.transform = `translate(${distance.axisX}px, ${distance.axisY}px)`;

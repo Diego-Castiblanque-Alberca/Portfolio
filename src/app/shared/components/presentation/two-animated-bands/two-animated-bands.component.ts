@@ -5,10 +5,9 @@ import {
   AfterViewInit,
   ElementRef,
   HostListener,
-  SecurityContext,
 } from '@angular/core';
 import { AnimatedBandComponent } from './animated-band/animated-band.component';
-import { BehaviorSubject, TimeoutConfig } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'app-two-animated-bands',
   standalone: true,
@@ -100,7 +99,6 @@ export class TwoAnimatedBandsComponent implements OnInit, AfterViewInit {
     this.checkVisibility(this.containerBands);
     this.calculateScrollMovement();
     if (this.isVisible) {
-      // this.throttledCalculateXmovement(this.totalScroll);
       this.calculateXMovement(this.totalScroll);
     }
   }
