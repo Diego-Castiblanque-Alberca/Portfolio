@@ -1,1 +1,18 @@
-<p>project-card works!</p>
+<div class="project-card-container" (click)="toProject" (keyup)="toProject" tabindex="0">
+    <section class="project-card-spine">
+        <h2>{{project.tittle1}}</h2>
+        <img [src]="project.iconSpine" alt="project-tittle">
+    </section>
+    <section class="project-card-cover">
+        <h2>{{project.tittle2}}</h2>
+        <ul class="project-card-description-list">
+            <li *ngFor="let info of project.description">{{info}}</li>
+        </ul>
+        <p class="project-card-type">{{project.type}}</p>
+        <ul class="project-card-technologies-icons">
+            <li class="project-card-technologies-icon" *ngFor="let icon of project.iconsTechnologies">
+                <img [src]="icon" alt="icon">
+            </li>
+        </ul>
+    </section>
+</div>

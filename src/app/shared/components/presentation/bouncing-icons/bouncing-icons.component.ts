@@ -10,9 +10,9 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PresentationComponent } from '../presentation.component';
-import { Directions } from './directions';
-import { Distances } from './distances';
-import { Sides } from './sides';
+import { Directions } from '../../../models/directions';
+import { Distances } from '../../../models/distances';
+import { Sides } from '../../../enums/sides'; 
 
 @Component({
   selector: 'app-bouncing-icons',

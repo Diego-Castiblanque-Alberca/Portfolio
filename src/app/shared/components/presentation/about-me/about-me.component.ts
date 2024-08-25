@@ -7,7 +7,7 @@ import {
   HostListener,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TextTypping } from './text-typping';
+import { TextTypping } from '../../../models/text-typping';
 
 @Component({
   selector: 'app-about-me',

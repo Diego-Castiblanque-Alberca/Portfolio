@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { project } from '../../../shared/constants';
 
 @Component({
   selector: 'app-projects-list',
