@@ -1,0 +1,31 @@
+@use '../../styles/variables.scss' as *;
+
+.projects-container {
+    background: url(../../../../assets/images/projects-background.png) center center;
+    background-size: 300px 300px;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+.projects-subcontainer {
+    padding-top: 30px;
+}
+
+.projects-tittle-section {
+    background-color: $color-background1 ;
+    opacity: 0.9;
+    color: $color-tittle-icons;
+    padding: 10px 0px;
+}
+.projects-tittle{
+    font-size: 1.5rem;
+    text-align: center; 
+    letter-spacing: 4.8px;
+    font-weight: 400;
+
+    &::first-letter {
+        font-weight: 600;
+
+    }
+}

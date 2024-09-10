@@ -1,0 +1,14 @@
+<section class="projects-container">
+    <div class="projects-subcontainer">
+        <section class="projects-tittle-section">
+            <h2 class="projects-tittle">Projects</h2>
+        </section>
+        <section class="projects-section">
+            <ul class="projects-list">
+                <li class="projects-list-item" *ngFor="let project of projects">
+                    <app-project-card [project]="project"></app-project-card>
+                </li>
+            </ul>
+        </section>
+    </div>
+</section>

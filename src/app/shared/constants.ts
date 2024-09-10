@@ -1,6 +1,6 @@
 import { Project } from './models/project';
 
-const projects: Project[] = [
+export const projects: Project[] = [
   {
     tittle1: 'Portfolio',
     tittle2: 'Portfolio Web',

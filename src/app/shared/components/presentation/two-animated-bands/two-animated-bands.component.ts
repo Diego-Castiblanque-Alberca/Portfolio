@@ -67,39 +67,25 @@ export class TwoAnimatedBandsComponent implements OnInit, AfterViewInit {
 
     this.isVisible = partiallyVisible || completelyVisible;
   }
-//Calculate the movement of the scroll
+  //Calculate the movement of the scroll
   calculateScrollMovement(): void {
     const scrollTop: number = document.documentElement.scrollTop;
     const scrollAmount: number = scrollTop - this.lastScrollTop;
     this.lastScrollTop = scrollTop;
     this.totalScroll += scrollAmount;
-    console.log(this.totalScroll);
   }
   //Calculate the movement of the band
   calculateXMovement(scrollInfo: number): void {
     this.xMovement.next(Math.abs(scrollInfo * 0.5));
   }
-  // throttle(mainFunction: (scrollInfo: number) => void, delay: number) {
-  //   let timerFlag: number | null = null;
-  //   return (scrollInfo: number) => {
-  //     if (timerFlag === null) {
-  //       mainFunction(scrollInfo);
-  //       console.log('throttle');
-  //       timerFlag = window.setTimeout(() => {
-  //         timerFlag = null;
-  //       }, delay);
-  //     }
-  //   };
-  // }
-
-  // throttledCalculateXmovement = this.throttle(this.calculateXMovement.bind(this), 0);
-
   @HostListener('window:scroll')
   onWindowScroll() {
-    this.checkVisibility(this.containerBands);
-    this.calculateScrollMovement();
-    if (this.isVisible) {
-      this.calculateXMovement(this.totalScroll);
+    if (window.innerWidth < 992) {
+      this.checkVisibility(this.containerBands);
+      this.calculateScrollMovement();
+      if (this.isVisible) {
+        this.calculateXMovement(this.totalScroll);
+      }
     }
   }
 }

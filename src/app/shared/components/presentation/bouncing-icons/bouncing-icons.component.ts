@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 import { PresentationComponent } from '../presentation.component';
 import { Directions } from '../../../models/directions';
 import { Distances } from '../../../models/distances';
-import { Sides } from '../../../enums/sides'; 
+import { Sides } from '../../../enums/sides';
 
 @Component({
   selector: 'app-bouncing-icons',
@@ -71,6 +71,7 @@ export class BouncingIconsComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.containerElement = this.container.presentationContainer;
     this.moveIcons();
+    //Se establece el tamaño del contenedor de los iconos con un retardo para asegurarnos de que se ha cargado el tamaño de los iconos
     window.setTimeout(() => {
       this.iconsContainer.nativeElement.style.width =
         this.iconsElements.first.nativeElement.offsetWidth + 'px';
@@ -80,10 +81,10 @@ export class BouncingIconsComponent implements AfterViewInit {
     this.iconsElements.first.nativeElement.style.border = '1px solid black';
   }
   moveIcons() {
-    if (this.containerElement) {
-      const limitsContainer =
-        this.containerElement.nativeElement.getBoundingClientRect();
-      this.setIntervalId = window.setInterval(() => {
+    this.setIntervalId = window.setInterval(() => {
+      if (this.containerElement) {
+        const limitsContainer =
+          this.containerElement.nativeElement.getBoundingClientRect();
         const coordinatesIcon =
           this.iconsElements.first.nativeElement.getBoundingClientRect();
         //comprobar si el icono está en el límite del contenedor y en función de ello cambiar la dirección
@@ -96,8 +97,9 @@ export class BouncingIconsComponent implements AfterViewInit {
         this.distanceTravelled.axisX += this.axisXDisplacementCalculated;
         this.distanceTravelled.axisY += this.axisYDisplacementCalculated;
         this.iconsContainer.nativeElement.style.transform = `translate(${this.distanceTravelled.axisX}px, ${this.distanceTravelled.axisY}px)`;
-      }, 10);
-    }
+      }
+    }, 10);
+
   }
   changeIconOnImpact() {
     if (this.orderCounter === this.imgs.length - 1) {
