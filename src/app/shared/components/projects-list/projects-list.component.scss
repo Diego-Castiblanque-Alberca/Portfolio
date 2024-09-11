@@ -33,11 +33,11 @@
 }
 .projects-list {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 30px;
 }
 .projects-list-item {
-    max-width: 80dvw;
+    max-width: 80dvw; 
 }
