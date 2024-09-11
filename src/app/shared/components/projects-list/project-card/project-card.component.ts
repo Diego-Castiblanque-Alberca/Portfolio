@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Project } from '../../../models/project';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,9 +10,11 @@ import { CommonModule } from '@angular/common';
 })
 export class ProjectCardComponent {
   @Input({ required: true })
-  tittle1!: string;
+  title1!: string;
   @Input({ required: true })
-  tittle2!: string;
+  iconSpine!: string;
+  @Input({ required: true })
+  title2!: string[];
   @Input({ required: true })
   descriptions!: string[];
   @Input({ required: true })
@@ -21,10 +22,11 @@ export class ProjectCardComponent {
   @Input({ required: true })
   iconsTechnologies!: string[];
   @Input({ required: true })
-  isActive = true;
-  @Input({ required: true })
   url!: string;
-  toProject(Event: MouseEvent) {
+
+  isActive = true;
+  toProject(Event: MouseEvent | KeyboardEvent) {
+    console.log('toProject');
     Event.stopPropagation();
     this.isActive && window.open(this.url, '_blank');
     //Si la carta no está activa, es porque tiene que moverse y no se puede abrir el enlace

@@ -1,0 +1,104 @@
+@use '../../../styles/variables.scss' as *;
+
+.project-card-container {
+    display: flex;
+    border-radius: 5px;
+    border: 1px solid $color-text2;
+    background-color: $color-background2;
+    font-size: clamp(1.25rem, 0.84vw + 1rem, 2rem);
+    width: clamp(15.625rem, 6.1vw + 14rem, 21.25rem);;
+    min-height: clamp(20rem, 7vw + 18rem, 26.25rem);
+    cursor: pointer;
+}
+
+.project-card-spine {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+    border-right: 2px solid $color-text2;
+    font-weight: 400;
+}
+
+.project-card-spine-title-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    & :first-child {
+        font-weight: 600;
+    }
+}
+
+.project-card-spine-icon {
+    width: clamp(1.125rem, 0.4vw + 1.02rem, 1.5rem);
+    height: auto;
+}
+
+.project-card-cover {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    padding: 20px;
+    z-index: 1;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: url(../../../../../assets/images/logo_transparencia.png) center center no-repeat;
+        background-size: contain;
+        opacity: 0.3;
+        z-index: -1;
+    }
+}
+
+.project-card-cover-title {
+    font-size: clamp(1.25rem, 0.84vw + 1rem, 2rem);
+    font-weight: 400;
+    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &>span::first-letter {
+        font-weight: 500;
+    }
+}
+
+.project-card-description-list {
+    list-style-type: circle;
+    font-size: clamp(0.75rem, 0.42vw + 0.63rem, 1.125rem);
+    font-weight: 400;
+    letter-spacing: clamp(0.075rem, 0.041vw + 0.063rem, 0.113rem);
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-card-type {
+    font-size: clamp(0.875rem, 0.555vw + 0.71rem, 1.375rem);
+    font-weight: 500;
+    letter-spacing: clamp(0.088rem, 0.042vw + 0.075rem, 0.125rem);
+
+}
+
+.project-card-technologies-icons-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.project-card-technologies-icon {
+    width: clamp(1.25rem, 0.355vw + 1.15rem, 1.563rem);;
+    height: auto;
+}

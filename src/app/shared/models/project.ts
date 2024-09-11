@@ -1,9 +1,9 @@
 export interface Project {
-  tittle1: string,
-  tittle2: string,
-  iconSpine: string,
-  description: string[],
-  type: string,
-  iconsTechnologies: string[],
-  url: string,
+  title1: string;
+  title2: string[];
+  iconSpine: string;
+  descriptions: string[];
+  type: string | string[];
+  iconsTechnologies: string[];
+  url: string;
 }

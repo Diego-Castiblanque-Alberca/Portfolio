@@ -1,4 +1,4 @@
 export interface Distances {
-    axisX: number;
-    axisY: number;
+  axisX: number;
+  axisY: number;
 }

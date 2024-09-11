@@ -17,5 +17,7 @@ import { BouncingIconsComponent } from './bouncing-icons/bouncing-icons.componen
   styleUrl: './presentation.component.scss',
 })
 export class PresentationComponent {
-  @ViewChild('presentationContainer', {static: true}) presentationContainer: ElementRef | undefined;
+  @ViewChild('presentationContainer', { static: true }) presentationContainer:
+    | ElementRef
+    | undefined;
 }

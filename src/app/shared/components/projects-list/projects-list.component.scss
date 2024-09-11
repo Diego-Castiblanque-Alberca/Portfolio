@@ -5,11 +5,12 @@
     background-size: 300px 300px;
     border-radius: 30px;
     font-family: 'Montserrat', sans-serif;
-    
-}
-
-.projects-subcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding-top: 30px;
+    gap: 40px;
 }
 
 .projects-tittle-section {
@@ -17,9 +18,10 @@
     opacity: 0.9;
     color: $color-tittle-icons;
     padding: 10px 0px;
+    width: 100%;
 }
 .projects-tittle{
-    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 1.7vw + 1rem, 3rem);
     text-align: center; 
     letter-spacing: 4.8px;
     font-weight: 400;
@@ -28,4 +30,14 @@
         font-weight: 600;
 
     }
+}
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.projects-list-item {
+    max-width: 80dvw;
 }
