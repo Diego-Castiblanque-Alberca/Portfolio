@@ -1,7 +1,4 @@
 @use '../../styles/variables.scss' as *;
-.no-scroll {
-    overflow: hidden;
-}
 
 .nav-bar-container {
     position: relative;
@@ -49,10 +46,15 @@
     position: fixed;
     top: 0;
     left: 50%;
-    transform: translateX(-50%);
+    transition: transform 0.5s ease-in-out;
+    transform: translate(-50%, 0);
     z-index: 1000;
+    
 }
-
+.nav-bar-not-visible {
+    transition: transform 0.5s ease-in-out;
+    transform: translate(-50%, -100%);
+}
 .nav-bar-list {
     display: flex;
     align-items: center;

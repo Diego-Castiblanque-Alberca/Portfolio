@@ -70,7 +70,9 @@ export class BouncingIconsComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.containerElement = this.container.presentationContainer;
-    this.moveIcons();
+    if (window.innerWidth >= 992) {
+      this.moveIcons();
+    }
     //Se establece el tamaño del contenedor de los iconos con un retardo para asegurarnos de que se ha cargado el tamaño de los iconos
     window.setTimeout(() => {
       this.iconsContainer.nativeElement.style.width =

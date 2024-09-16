@@ -36,11 +36,11 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
     ];
     this.isTyppingNow = false;
     this.textContent = [
-      'Hard work, perseverance, frustration tolerance and a pinch of ambition, are the ingredients of the recipe I have followed to build my profile as a ',
+      'The combination of hard work, perseverance, frustration tolerance and a pinch of ambition is the formula I follow to build and grow my profile as a ',
       'Full Stack Developer',
       '.',
-      "Yes, a lot of Full Stack, but do you know how to design? First of all, I love all the fellow designers I've had. Maybe that's why sometimes I like to design and spend hours and hours with Figma. Self-love, Who knows.",
-      'I try to keep my profile in balance, developing projects from scratch. Starting with the design of the interface and the subsequent development of the application both frontend and backend.',
+      'I am currently focused on the JavaScript and TypeScript ecosystem, although always open to learning new languages or going deeper into those I have used during my training, such as PHP with Laravel and Java.',
+      "My roadmap incorporates frameworks and libraries like AngularJS, ReactJS, NestJS or Express along with Jest for test automation. Database management such as MySQL or PostgreSQL, in combination with ORM's to optimize data management. CSS styling with Sass. In deployment I use tools like Docker and AWS.",
     ];
   }
   ngOnInit() {
