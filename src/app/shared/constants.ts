@@ -1,5 +1,24 @@
 import { Project } from './models/project';
 
+export const emptyProjects: Project[] = [
+  {
+    title1: ' ',
+    title2: [' '],
+    iconSpine: '#',
+    descriptions: [' '],
+    type: [' '],
+    iconsTechnologies: ['#'],
+    url: '#',
+  },
+  {
+    title1: ' ',
+    title2: [' '],
+    iconSpine: '#',
+    descriptions: [' '],
+    type: [' '],
+    iconsTechnologies: ['#'],
+    url: '#',
+  }];
 export const projects: Project[] = [
   {
     title1: 'Portfolio',

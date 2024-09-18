@@ -3,7 +3,13 @@
 /* Css reset */
 
 :root {
-    font-size: 16px;}
+    font-size: 16px;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Para Firefox */
+    &::-webkit-scrollbar {
+        display: none; /* Para WebKit (Chrome, Safari) */
+      }
+}
 
 * { margin: 0; padding: 0;}
 *, *::before, *::after { box-sizing: border-box; }

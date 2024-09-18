@@ -13,7 +13,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 20px;
     width: 95dvw;
 }
 
@@ -21,6 +21,10 @@
 
 @media screen and (min-width: 768px) {}
 
-@media screen and (min-width: 998px) {}
+@media screen and (min-width: 992px) {
+    .home-sub-container{
+        gap: 0px;
+    }
+}
 
 @media screen and (min-width: 1920px) {}

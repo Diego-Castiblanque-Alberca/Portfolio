@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -23,7 +23,8 @@ export class ProjectCardComponent {
   iconsTechnologies!: string[];
   @Input({ required: true })
   url!: string;
-
+  @ViewChild('card', { static: true })
+  card!: ElementRef;
   isActive = true;
   toProject(Event: MouseEvent | KeyboardEvent) {
     console.log('toProject');

@@ -1,8 +1,7 @@
 @use '../../../styles/variables.scss' as *;
 
 .identity-card-container {
-    padding-top: clamp(11.25rem, 8.5vw + 9rem, 13.75rem);
-
+    padding-top: 140px;
 }
 
 .identity-card-photo-container {

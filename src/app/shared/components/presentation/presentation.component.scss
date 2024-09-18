@@ -1,28 +1,37 @@
 @use '../../styles/variables.scss' as *;
-
-.presentation-container {
+.presentation-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.presentation-subcontainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: calc(50px + 2.5vw);
     background: url(../../../../assets/images/presentation-background-vertical.png) no-repeat center center;
     background-size: cover;
-    padding: 0 15px 30px;
+    padding-bottom: 30px;
     border-radius: 30px;
     margin-top: clamp(0.938rem, 0.4vw + 0.93rem, 1.375rem);
+    width: 95vw;
     overflow: hidden;
 }
 
 @media screen and (min-width: 992px) {
-    .presentation-container {
+    .presentation-container{
+    height: 100dvh;
+}
+    .presentation-subcontainer {
         position: relative;
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
         padding: 80px 30px 30px;
         gap: 0;
-        min-height: 94vh;
-        
+        height: 95vh;
+        margin-top: 0;
     }
     .shadow-top {
         box-shadow: inset 0px 10px 10px -6.5px $color-routerLinks;

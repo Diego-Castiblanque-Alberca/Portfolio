@@ -1,14 +1,38 @@
 <section class="projects-container">
-    <section class="projects-tittle-section">
-        <h2 class="projects-tittle">Projects</h2>
-    </section>
-    <ul class="projects-list">
-        @for (project of allProjects; track project.url; let index = $index){
-        <li class="projects-list-item">
-            <app-project-card [title1]="project.title1" [iconSpine]="project.iconSpine" [title2]="project.title2"
-                [descriptions]="project.descriptions" [type]="project.type"
-                [iconsTechnologies]="project.iconsTechnologies" [url]="project.url"></app-project-card>
-        </li>
-        }
-    </ul>
+    <div class="projects-subcontainer-background">
+        <section class="projects-tittle-section">
+            <h2 class="projects-tittle">Projects</h2>
+        </section>
+        <div class="projects-container-list"(scroll)="nextCard($event)" #containerList>
+            <ul class="projects-list" >
+                @for (project of hiddenProjects; track project.url;){
+                    <li class="projects-list-item-hidden">
+                        <app-project-card [title1]="project.title1" [iconSpine]="project.iconSpine" [title2]="project.title2"
+                            [descriptions]="project.descriptions" [type]="project.type"
+                            [iconsTechnologies]="project.iconsTechnologies" [url]="project.url"></app-project-card>
+                    </li>
+                }
+                @for (project of allProjects; track project.url;){
+                <li class="projects-list-item">
+                    <app-project-card [title1]="project.title1" [iconSpine]="project.iconSpine" [title2]="project.title2"
+                        [descriptions]="project.descriptions" [type]="project.type"
+                        [iconsTechnologies]="project.iconsTechnologies" [url]="project.url" #projectCard></app-project-card>
+                </li>
+                }
+                @for (project of hiddenProjects; track project.url;){
+                    <li class="projects-list-item-hidden">
+                        <app-project-card [title1]="project.title1" [iconSpine]="project.iconSpine" [title2]="project.title2"
+                            [descriptions]="project.descriptions" [type]="project.type"
+                            [iconsTechnologies]="project.iconsTechnologies" [url]="project.url"></app-project-card>
+                    </li>
+                }
+            </ul>
+            <img class="projects-list-pointer" src="assets/images/pointer-enable.png" alt="Pointer" #pointer>
+            <ul class="projects-list-status-bar">
+                @for (item of allProjects; track $index;){
+                    <li class="projects-list-status-bar-item" #itemStatus></li>
+                }
+            </ul>
+        </div>
+    </div>
 </section>
