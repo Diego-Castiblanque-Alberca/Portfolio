@@ -27,7 +27,6 @@ export class ProjectCardComponent {
   card!: ElementRef;
   isActive = true;
   toProject(Event: MouseEvent | KeyboardEvent) {
-    console.log('toProject');
     Event.stopPropagation();
     this.isActive && window.open(this.url, '_blank');
     //Si la carta no está activa, es porque tiene que moverse y no se puede abrir el enlace
