@@ -1,4 +1,4 @@
-<div class="project-card-container" (click)="toProject($event)" (keyup)="toProject($event)" tabindex="0" #card>
+<div [ngClass]="{'project-card-container': true, 'project-card-disabled' : !isActive}" (click)="toProject($event)" (keyup)="toProject($event)" tabindex="0" #card>
     <section class="project-card-spine">
         <p class="project-card-spine-title-container">
             @for (char of title1; track char;){

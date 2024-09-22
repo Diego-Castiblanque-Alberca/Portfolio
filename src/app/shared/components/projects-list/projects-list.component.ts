@@ -6,6 +6,7 @@ import {
   ViewChild,
   ElementRef,
   AfterViewInit,
+  HostListener,
 } from '@angular/core';
 import { projects, emptyProjects } from '../../constants';
 import { ProjectCardComponent } from './project-card/project-card.component';
@@ -56,32 +57,49 @@ export class ProjectsListComponent implements OnInit, AfterViewInit {
     this.previousScroll = this.container.nativeElement.scrollLeft;
     this.cardSelectedIndex = 1;
     this.previousStatus = -1;
+    this.previousCardSelected = null;
   }
   ngAfterViewInit() {
     this.cardMoveTo(this.cardSelectedIndex, true);
   }
 
-  nextCard(event: Event) {
+  scrollNextOrPrevCard(event: Event) {
     event.stopPropagation();
     if (this.scrollDisabled) return;
     const actualPosition = this.container.nativeElement.scrollLeft;
-    if (
-      actualPosition > this.previousScroll &&
-      this.cardSelectedIndex < this.allProjects.length - 1
-    ) {
-      this.cardSelectedIndex = this.cardSelectedIndex + 1;
+    // eslint-disable-next-line prettier/prettier
+    if (actualPosition > this.previousScroll && this.cardSelectedIndex < this.allProjects.length - 1) {
+      this.cardSelectedIndex++;
       this.cardMoveTo(this.cardSelectedIndex); //unificar
-      //guardar la posición actual del scroll y meter un delay para que no se ejecute el evento de scroll
     } else if (
       actualPosition < this.previousScroll &&
       this.cardSelectedIndex > 0
     ) {
-      this.cardSelectedIndex = this.cardSelectedIndex - 1;
+      this.cardSelectedIndex--;
       this.cardMoveTo(this.cardSelectedIndex);
     } else {
       this.cardMoveTo(this.cardSelectedIndex);
     }
   }
+  clickNextOrPrevCard(event: Event, direction: 'next' | 'prev') {
+    event.stopPropagation();
+    const button = event.target as HTMLButtonElement;
+    button.classList.toggle('button-clicked');
+    setTimeout(() => {
+      button.classList?.toggle('button-clicked');
+    }, 200);
+    console.log('clickNextOrPrevCard', direction);
+    if (this.scrollDisabled) return;
+    // eslint-disable-next-line prettier/prettier
+    if ( direction === 'next' && this.cardSelectedIndex < this.allProjects.length - 1) {
+      this.cardSelectedIndex++;
+      this.cardMoveTo(this.cardSelectedIndex);
+    } else if (direction === 'prev' && this.cardSelectedIndex > 0) {
+      this.cardSelectedIndex--;
+      this.cardMoveTo(this.cardSelectedIndex);
+    }
+  }
+
   cardMoveTo(index: number, firstTime: boolean = false) {
     this.scrollDisabled = true;
     this.container.nativeElement.style.overflow = 'hidden';
@@ -89,6 +107,12 @@ export class ProjectsListComponent implements OnInit, AfterViewInit {
     this.previousCardSelected = this.cardSelected || null;
     this.cardSelected =
       this.projectsCards.get(index) || this.projectsCards.first;
+    //Cambiar el tamaño de la tarjeta seleccionada
+    if (this.previousCardSelected) {
+      this.previousCardSelected.setActiveStatus(false);
+      this.previousCardSelected = this.cardSelected;
+    }
+    this.cardSelected.setActiveStatus(true);
     this.halfWidthCardSelected =
       this.cardSelected.card.nativeElement.getBoundingClientRect().width / 2;
     this.middleCardSelected =
@@ -109,24 +133,38 @@ export class ProjectsListComponent implements OnInit, AfterViewInit {
         this.scrollDisabled = false;
         this.container.nativeElement.style.overflow = 'scroll';
       },
-      firstTime ? 100 : 400,
+      firstTime ? 100 : 600,
     );
   }
   changeStatus(itemForEnabled: number, itemForDisabled: number) {
     console.log('changeStatus', itemForEnabled, itemForDisabled);
     if (itemForEnabled === itemForDisabled) return;
     if (itemForDisabled === -1) {
-      this.itemsStatusBar.get(itemForEnabled)?.nativeElement.classList?.toggle('status-enabled');
+      this.itemsStatusBar
+        .get(itemForEnabled)
+        ?.nativeElement.classList?.toggle('status-enabled');
       this.previousStatus = itemForEnabled;
       console.log('pre');
     } else {
-      this.itemsStatusBar.get(itemForEnabled)?.nativeElement.classList.toggle('status-enabled');
+      this.itemsStatusBar
+        .get(itemForEnabled)
+        ?.nativeElement.classList.toggle('status-enabled');
       this.itemsStatusBar
         .get(itemForDisabled)
         ?.nativeElement.classList?.toggle('status-enabled');
       this.previousStatus = itemForEnabled;
     }
-    console.log('previusStatus', this.previousStatus);
   }
-  // activateOrDeactivateCard(activateCard, deactivateCArd) {}
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    event.stopPropagation();
+    this.halfWidthContainer =
+      this.container.nativeElement.getBoundingClientRect().width / 2;
+    this.middleContainer =
+      this.container.nativeElement.getBoundingClientRect().x +
+      this.halfWidthContainer;
+    setTimeout(() => {
+      this.cardMoveTo(this.cardSelectedIndex, true);
+    }, 1);
+  }
 }

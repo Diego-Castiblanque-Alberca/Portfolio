@@ -3,8 +3,14 @@
         <section class="projects-tittle-section">
             <h2 class="projects-tittle">Projects</h2>
         </section>
-        <div class="projects-container-list"(scroll)="nextCard($event)" #containerList>
-            <ul class="projects-list" >
+        <div class="projects-container-list">
+            <button class="projects-button-next" (click)="clickNextOrPrevCard($event, 'next')" #nextButton>
+                <img src="assets/images/next-icon.png" alt="next card">
+            </button>
+            <button class="projects-button-prev" (click)="clickNextOrPrevCard($event, 'prev')" #prevButton>
+                <img src="assets/images/previous-icon.png" alt="prev card">
+            </button>
+            <ul class="projects-list" (scroll)="scrollNextOrPrevCard($event)" #containerList >
                 @for (project of hiddenProjects; track project.url;){
                     <li class="projects-list-item-hidden">
                         <app-project-card [title1]="project.title1" [iconSpine]="project.iconSpine" [title2]="project.title2"

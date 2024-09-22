@@ -21,7 +21,6 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
   containerInfoHidden!: ElementRef;
   @ViewChild('about_me_info_without_dimensions', { static: true })
   containerInfo!: ElementRef;
-
   spans: TextTypping[];
   isTyppingNow: boolean;
   textContent: string[];

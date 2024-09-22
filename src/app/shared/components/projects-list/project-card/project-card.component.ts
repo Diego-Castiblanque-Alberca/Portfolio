@@ -1,5 +1,12 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  Input,
+  ViewChild,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-project-card',
@@ -25,12 +32,23 @@ export class ProjectCardComponent {
   url!: string;
   @ViewChild('card', { static: true })
   card!: ElementRef;
-  isActive = true;
-  toProject(Event: MouseEvent | KeyboardEvent) {
-    Event.stopPropagation();
-    this.isActive && window.open(this.url, '_blank');
-    //Si la carta no está activa, es porque tiene que moverse y no se puede abrir el enlace
-    //se mueve la carta y ya se queda lista para abrir el enlace
-    //Se desactivan todas las demás cartas.
+  isActive = false;
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  toProject(event: Event) {
+    event.stopPropagation();
+    if (!this.isActive) {
+      return;
+    }
+    this.card.nativeElement.classList.toggle('card-selected');
+    setTimeout(() => {
+      this.card.nativeElement.classList.toggle('card-selected');
+      
+    }, 200);
+    window.open(this.url, '_blank');
+  }
+  setActiveStatus(status: boolean) {
+    this.isActive = status;
+    this.cdr.detectChanges(); // Forzar la verificación de cambios
   }
 }

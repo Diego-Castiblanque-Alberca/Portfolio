@@ -2,7 +2,7 @@
     <h2 [class.shining]="isTyppingNow" class="about-me-title"><span>About</span><span>Me</span></h2>
     <div class="about-me-info-container">
         <section  #about_me_info_without_dimensions class="about-me-info">
-            <p>
+            <p class="text-indent">
                 <span [class.cursor]="spans[0].isTypping">{{spans[0].text}}</span>
                 <span class="strongSpan" [class.cursor]="spans[1].isTypping">{{spans[1].text}}</span>
                 <span [class.cursor]="spans[2].isTypping">{{spans[2].text}}</span>
@@ -11,9 +11,9 @@
             <p><span [class.cursor]="spans[4].isTypping">{{spans[4].text}}</span></p>
         </section>
         <section #about_me_info_with_dimensions class="about-me-info about-me-info-copy-hidden">
-            <p>
+            <p class="text-indent">
                 <span>{{textContent[0]}}</span>
-                <span class="strongSpan">{{textContent[1]}}</span>
+                <span class="strong-span">{{textContent[1]}}</span>
                 <span>{{textContent[2]}}</span>
             </p>
             <p><span>{{textContent[3]}}</span></p>
