@@ -2,7 +2,8 @@ import {
   Component,
   ElementRef,
   HostListener,
-  ViewChild, OnInit,
+  ViewChild,
+  OnInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from '../../shared/components/nav-bar/nav-bar.component';
@@ -31,12 +32,16 @@ export class HomeComponent implements OnInit {
   }
 
   @HostListener('window:scroll', ['$event'])
-  nextSecction(event: Event) {
+  changeSeccion(event: Event) {
+    console.log('iscrolling');
+    event.preventDefault();
     if (window.innerWidth < 992 || !this.scrollActive) return;
     window.document.body.style.overflow = 'hidden';
     this.scrollActive = false;
     const currentScrollPosition: number = window.scrollY;
-    const viewportHeight: number = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    const viewportHeight: number = window.visualViewport
+      ? window.visualViewport.height
+      : window.innerHeight;
     if (currentScrollPosition > this.previousScrollPosition) {
       window.scroll(0, this.previousScrollPosition + viewportHeight);
       this.previousScrollPosition += viewportHeight;
@@ -49,5 +54,19 @@ export class HomeComponent implements OnInit {
       this.scrollActive = true;
       window.document.body.style.overflow = 'scroll';
     }, 1200);
+  }
+  @HostListener('window:resize', ['$event'])
+  onresize(event: Event) {
+    console.log('isResizing');
+    event.preventDefault();
+    if (window.innerWidth < 992) return;
+    window.document.body.style.overflow = 'hidden';
+    this.scrollActive = false;
+    window.scroll({ top: 0, behavior: 'instant' });
+    this.previousScrollPosition = 0;
+    setTimeout(() => {
+      this.scrollActive = true;
+      window.document.body.style.overflow = 'scroll';
+    }, 300);
   }
 }

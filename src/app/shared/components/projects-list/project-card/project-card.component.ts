@@ -6,7 +6,6 @@ import {
   ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-project-card',
