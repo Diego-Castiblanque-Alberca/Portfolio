@@ -55,7 +55,11 @@ export class ProjectsListComponent implements OnInit, AfterViewInit {
       this.container.nativeElement.getBoundingClientRect().x +
       this.halfWidthContainer;
     this.previousScroll = this.container.nativeElement.scrollLeft;
-    this.cardSelectedIndex = 1;
+    if (window.innerWidth < 740) {
+      this.cardSelectedIndex = 0;
+    } else {
+      this.cardSelectedIndex = 1;
+    }
     this.previousStatus = -1;
     this.previousCardSelected = null;
   }
@@ -88,7 +92,6 @@ export class ProjectsListComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       button.classList?.toggle('button-clicked');
     }, 200);
-    console.log('clickNextOrPrevCard', direction);
     if (this.scrollDisabled) return;
     // eslint-disable-next-line prettier/prettier
     if ( direction === 'next' && this.cardSelectedIndex < this.allProjects.length - 1) {
@@ -137,14 +140,12 @@ export class ProjectsListComponent implements OnInit, AfterViewInit {
     );
   }
   changeStatus(itemForEnabled: number, itemForDisabled: number) {
-    console.log('changeStatus', itemForEnabled, itemForDisabled);
     if (itemForEnabled === itemForDisabled) return;
     if (itemForDisabled === -1) {
       this.itemsStatusBar
         .get(itemForEnabled)
         ?.nativeElement.classList?.toggle('status-enabled');
       this.previousStatus = itemForEnabled;
-      console.log('pre');
     } else {
       this.itemsStatusBar
         .get(itemForEnabled)

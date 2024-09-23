@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   changeSeccion(event: Event) {
-    console.log('iscrolling');
     event.preventDefault();
     if (window.innerWidth < 992 || !this.scrollActive) return;
     window.document.body.style.overflow = 'hidden';
