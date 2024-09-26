@@ -1,4 +1,5 @@
 import { Project } from './models/project';
+import { Quote } from './models/quote';
 
 export const emptyProjects: Project[] = [
   {
@@ -18,14 +19,15 @@ export const emptyProjects: Project[] = [
     type: [' '],
     iconsTechnologies: ['#'],
     url: '#',
-  }];
+  },
+];
 export const projects: Project[] = [
   {
     title1: 'Portfolio',
     title2: ['Portfolio', 'Web'],
     iconSpine: 'assets/images/icons-band/brackets.svg',
     descriptions: [
-      'Responsive website about me (movile first).',
+      'Responsive website about me (mobile first).',
       'Exhibition of all my personal projects.',
       'Deployment to GitHub Pages.',
     ],
@@ -46,7 +48,7 @@ export const projects: Project[] = [
     descriptions: [
       'Information about the restaurant.',
       'Gastronomic interactive menu.',
-      'Booking management with email communications.'
+      'Booking management with email communications.',
     ],
     type: ['SPA & CSR + API Rest'],
     iconsTechnologies: [
@@ -74,7 +76,6 @@ export const projects: Project[] = [
       'assets/images/icons-band/js.png',
       'assets/images/icons-band/html.png',
       'assets/images/icons-band/css.png',
-
     ],
     url: 'https://github.com/Diego-Castiblanque-Alberca/Frontend_Test',
   },
@@ -97,5 +98,36 @@ export const projects: Project[] = [
       'assets/images/icons-band/docker.png',
     ],
     url: 'https://github.com/Diego-Castiblanque-Alberca/Backend_Test',
+  },
+];
+
+export const quotes: Quote[] = [
+  {
+    text: 'Always write your code as if the person who will maintain it is a dangerous psychopath who knows who you are and where you live.',
+    autor: 'John F. Woods',
+  },
+  {
+    text: 'Continuous learning is the key to personal and professional growth.',
+    autor: 'Grace Hopper',
+  },
+  {
+    text: 'Nothing is impossible if you have the determination and courage to move forward.',
+    autor: 'Grace Hopper',
+  },
+  {
+    text: 'Java is to JavaScript as ham is to hamster.',
+    autor: 'Jeremy Keith',
+  },
+  {
+    text: "Once a new technology rolls over you, if you're not part of the steamroller you're part of the road.",
+    autor: 'Stewart Brand',
+  },
+  {
+    text: 'Code is like humor. When you have to explain it, it’s bad.',
+    autor: 'Cory House',
+  },
+  {
+    text: 'Bad programmers worry about the code. Good programmers worry about data structures and their relationships.',
+    autor: 'Linus Torvalds',
   },
 ];

@@ -23,19 +23,20 @@ export class AnimatedBandComponent implements AfterViewInit, OnDestroy {
   @Input({ transform: booleanAttribute }) reverse: boolean;
   @Input() rotate!: number;
   @Input() xMovement!: BehaviorSubject<number>;
+  @Input() iterations!: number[];
   @ViewChildren('iconContainer') iconContainer!: QueryList<ElementRef>;
   @ViewChild('sliderBand') sliderBand!: ElementRef;
   icons: string[];
-  iterationsArray: number[];
+  
   private xMovementSubscription: Subscription | undefined;
   constructor() {
-    this.iterationsArray = [0, 1];
     this.reverse = false;
     this.icons = [
       'assets/images/icons-band/aws.png',
       'assets/images/icons-band/css.png',
       'assets/images/icons-band/github.png',
       'assets/images/icons-band/html.png',
+      'assets/images/icons-band/postman.png',
       'assets/images/icons-band/java.png',
       'assets/images/icons-band/apache.png',
       'assets/images/icons-band/js.png',
@@ -48,8 +49,11 @@ export class AnimatedBandComponent implements AfterViewInit, OnDestroy {
       'assets/images/icons-band/docker.png',
       'assets/images/icons-band/react.png',
       'assets/images/icons-band/sass.png',
+      'assets/images/icons-band/nestjs.png',
       'assets/images/icons-band/ts.png',
       'assets/images/icons-band/visual.png',
+      'assets/images/icons-band/node.png',
+      'assets/images/icons-band/vite.png', 
     ];
   }
   ngAfterViewInit() {

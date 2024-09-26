@@ -22,6 +22,7 @@ export class TwoAnimatedBandsComponent implements OnInit, AfterViewInit {
   xMovement: BehaviorSubject<number>;
   isVisible: boolean;
   totalScroll: number;
+  arrayFill: number[];
 
   constructor() {
     this.lastScrollTop = 0;
@@ -29,6 +30,7 @@ export class TwoAnimatedBandsComponent implements OnInit, AfterViewInit {
     this.isVisible = false;
     this.containerRotated = 0;
     this.xMovement = new BehaviorSubject<number>(0);
+    this.arrayFill = Array(2).fill(0);
   }
 
   ngOnInit() {

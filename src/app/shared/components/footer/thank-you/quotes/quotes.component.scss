@@ -1,0 +1,23 @@
+.container-quote{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    padding: 1rem;
+    background-color: rgba(white, 0.04);
+    border: 1px solid #ffd609;
+    border-radius: 15px;
+    max-width: max-content;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+}
+.quote-autor{
+    display: inline-block;
+    position: relative;
+}
+.quote-signed-icon{
+    position: absolute;
+    bottom: 0;
+    width: 2em;
+    height: auto;
+}

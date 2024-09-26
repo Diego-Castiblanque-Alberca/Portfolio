@@ -39,7 +39,7 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
       'Full Stack Developer',
       '.',
       'I am currently focused on the JavaScript and TypeScript ecosystem, although always open to learning new languages or going deeper into those I have used during my training, such as PHP with Laravel and Java.',
-      "My roadmap incorporates frameworks and libraries like AngularJS, ReactJS, NestJS or Express along with Jest for test automation. Database management such as MySQL or PostgreSQL, in combination with ORM's to optimize data management. CSS styling with Sass. In deployment I use tools like Docker and AWS.",
+      "My roadmap incorporates frameworks and libraries like AngularJS, ReactJS, NestJS or Express along with Jest for test automation. Database management such as MySQL or PostgreSQL, in combination with ORM's to optimize data management. CSS styling with Sass. To deploy I use tools like Docker and AWS.",
     ];
   }
   ngOnInit() {

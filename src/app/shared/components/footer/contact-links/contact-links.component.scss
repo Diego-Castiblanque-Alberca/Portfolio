@@ -1,0 +1,40 @@
+@use '../../../styles/variables.scss' as *;
+.contact-links-container {
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    transform: rotate(-5deg);
+}
+
+.contact-links-subcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contact-links-title{
+    color: $color-routerLinks;
+    font-size: 2.5em;
+    text-align: center;
+    
+}
+
+.contact-links-container-arrows {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+}
+.contact-links-arrow {
+    width: 80px;
+    height: auto;
+}
+.contact-links-container-icons{
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+    margin-top: 1em;
+    color: $color-text2;
+}
+.contact-links-icon{
+    width: 60px;
+    height: auto;
+}

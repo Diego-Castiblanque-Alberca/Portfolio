@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
 import { NavBarComponent } from '../../shared/components/nav-bar/nav-bar.component';
 import { PresentationComponent } from '../../shared/components/presentation/presentation.component';
 import { ProjectsListComponent } from '../../shared/components/projects-list/projects-list.component';
+import { FooterComponent } from '../../shared/components/footer/footer.component';
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -17,6 +19,7 @@ import { ProjectsListComponent } from '../../shared/components/projects-list/pro
     CommonModule,
     PresentationComponent,
     ProjectsListComponent,
+    FooterComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
