@@ -2,19 +2,19 @@
     <div class="nav-bar-menu" [ngClass]="{ 'nav-bar-menu-open' : isOpen, 'nav-bar-menu-close' : !isOpen}">
         <ul class="nav-bar-menu-list" >
             <li>
-                <a (click)="toggleMenu()" href="#about-me" class="nav-bar-menu-link">About</a>
+                <a data-ref="0" (click)="toggleMenu(); updateSelectedSecction($event)" href="#about-me" class="nav-bar-menu-link">About</a>
             </li>
             <li>
                 <img src="assets/images/menu-list-space.svg" class="nav-bar-menu-list-space" alt="espace">
             </li>
             <li>
-                <a (click)="toggleMenu()"  href="#projects" class="nav-bar-menu-link">Projects</a>
+                <a data-ref="1" (click)="toggleMenu(); updateSelectedSecction($event)"  href="#projects" class="nav-bar-menu-link">Projects</a>
             </li>
             <li>
                 <img src="assets/images/menu-list-space.svg" class="nav-bar-menu-list-space" alt="espace">
             </li>
             <li>
-                <a (click)="toggleMenu()" href="#contact-me" class="nav-bar-menu-link" >Contact</a>
+                <a data-ref="2" (click)="toggleMenu(); updateSelectedSecction($event)" href="#contact-me" class="nav-bar-menu-link" >Contact</a>
             </li>
         </ul>
     </div>
@@ -33,19 +33,19 @@
                 <!-- Problema con la a y la imagen, no se adapta la a igual con flex -->
             </li>
             <li>
-                <a href="#about-me" class="nav-bar-link">About</a>
+                <a data-ref="0" href="#about-me" (click)="updateSelectedSecction($event)"  class="nav-bar-link">About</a>
             </li>
             <li>
                 <span class="nav-bar-space"></span>
             </li>
             <li>
-                <a href="#projects" class="nav-bar-link">Projects</a>
+                <a data-ref="1" href="#projects"(click)="updateSelectedSecction($event)"  class="nav-bar-link">Projects</a>
             </li>
             <li>
                 <span class="nav-bar-space"></span>
             </li>
             <li>
-                <a href="#contact-me" class="nav-bar-link">Contact</a>
+                <a data-ref="2" href="#contact-me" (click)="updateSelectedSecction($event)" class="nav-bar-link">Contact</a>
             </li>
         </ul>
     </nav>

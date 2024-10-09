@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,6 +12,7 @@ export class NavBarComponent {
   isOpen: boolean = false;
   isVisible: boolean = true;
   previousScrollPosition = 0;
+  @Output('secctionClicked') secction = new EventEmitter<number>();
 
   constructor() {}
   toggleMenu() {
@@ -21,6 +22,10 @@ export class NavBarComponent {
     } else {
       document.body.style.overflow = 'scroll';
     }
+  }
+  updateSelectedSecction(event: Event){
+    console.log((event.target as HTMLElement).dataset['ref']);
+    this.secction.emit(Number((event.target as HTMLElement).dataset['ref']));
   }
 
   @HostListener('window:scroll', [])

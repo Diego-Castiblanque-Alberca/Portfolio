@@ -4,6 +4,7 @@ import {
   HostListener,
   ViewChild,
   OnInit,
+  SecurityContext,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from '../../shared/components/nav-bar/nav-bar.component';
@@ -29,11 +30,38 @@ export class HomeComponent implements OnInit {
   scrollActive: boolean = true;
   @ViewChild('homeContainer', { static: true })
   homeContainer!: ElementRef;
+  currentSection: number = 0;
+  viewportHeight: number = window.visualViewport
+      ? window.visualViewport.height
+      : window.innerHeight;
+  
 
   ngOnInit() {
     this.previousScrollPosition = window.document.body.offsetTop;
   }
-
+  goToSection(section: number) {
+    if (window.innerWidth < 992 || !this.scrollActive || this.currentSection === section) return;
+    window.document.body.style.overflow = 'hidden';
+    this.scrollActive = false;
+    
+      if (this.currentSection < section) {
+        while(this.currentSection !== section){
+        window.scroll(0, this.previousScrollPosition + this.viewportHeight);
+        this.previousScrollPosition += this.viewportHeight;
+        this.currentSection++;
+        }
+      } else if (this.currentSection > section) {
+        while(this.currentSection !== section){
+          window.scroll(0, this.previousScrollPosition - this.viewportHeight);
+          this.previousScrollPosition -= this.viewportHeight;
+          this.currentSection--;
+        }
+      }
+    setTimeout(() => {
+      this.scrollActive = true;
+      window.document.body.style.overflow = 'scroll';
+    }, 1200);
+  }
   @HostListener('window:scroll', ['$event'])
   changeSeccion(event: Event) {
     event.preventDefault();
@@ -41,17 +69,15 @@ export class HomeComponent implements OnInit {
     window.document.body.style.overflow = 'hidden';
     this.scrollActive = false;
     const currentScrollPosition: number = window.scrollY;
-    const viewportHeight: number = window.visualViewport
-      ? window.visualViewport.height
-      : window.innerHeight;
     if (currentScrollPosition > this.previousScrollPosition) {
-      window.scroll(0, this.previousScrollPosition + viewportHeight);
-      this.previousScrollPosition += viewportHeight;
+      window.scroll(0, this.previousScrollPosition + this.viewportHeight);
+      this.previousScrollPosition += this.viewportHeight;
+      this.currentSection++;
     } else if (currentScrollPosition < this.previousScrollPosition) {
-      window.scroll(0, this.previousScrollPosition - viewportHeight);
-      this.previousScrollPosition -= viewportHeight;
+      window.scroll(0, this.previousScrollPosition - this.viewportHeight);
+      this.previousScrollPosition -= this.viewportHeight;
+      this.currentSection--;
     }
-    console.log(window.document.body.offsetTop);
     setTimeout(() => {
       this.scrollActive = true;
       window.document.body.style.overflow = 'scroll';
@@ -66,6 +92,10 @@ export class HomeComponent implements OnInit {
     this.scrollActive = false;
     window.scroll({ top: 0, behavior: 'instant' });
     this.previousScrollPosition = 0;
+    this.viewportHeight =
+    window.visualViewport
+    ? window.visualViewport.height
+    : window.innerHeight;
     setTimeout(() => {
       this.scrollActive = true;
       window.document.body.style.overflow = 'scroll';

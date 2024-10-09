@@ -2,14 +2,13 @@
     display: flex;
     flex-direction: column;
     gap: 1.2em;
-    padding: 1rem;
+    padding: 1em;
     background-color: rgba(white, 0.04);
     border: 1px solid #ffd609;
     border-radius: 15px;
+    width: 85%;
     max-width: max-content;
     margin: 0 auto;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 1px;
 }
 .quote-autor{
     display: inline-block;
@@ -20,4 +19,10 @@
     bottom: 0;
     width: 2em;
     height: auto;
+}
+
+@media screen and (min-width: 992px){
+    .container-quote{
+        width: 80%;
+    }
 }
