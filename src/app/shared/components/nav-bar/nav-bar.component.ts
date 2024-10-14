@@ -33,7 +33,7 @@ export class NavBarComponent {
     const currentScrollPosition = document.documentElement.scrollTop;
     if (currentScrollPosition > this.previousScrollPosition) {
       this.isVisible = false;
-    } else if (currentScrollPosition < this.previousScrollPosition) {
+    } else if (currentScrollPosition < this.previousScrollPosition  || currentScrollPosition === 0) {
       this.isVisible = true;
     }
     // Actualizamos la posición anterior al valor actual del scroll

@@ -85,7 +85,6 @@ export class HomeComponent implements OnInit {
   }
   @HostListener('window:resize', ['$event'])
   onresize(event: Event) {
-    console.log('isResizing');
     event.preventDefault();
     if (window.innerWidth < 992) return;
     window.document.body.style.overflow = 'hidden';
