@@ -14,7 +14,7 @@ export class NavBarComponent {
   previousScrollPosition = 0;
   @Output('secctionClicked') secction = new EventEmitter<number>();
 
-  constructor() {}
+  constructor() { }
   toggleMenu() {
     this.isOpen = !this.isOpen;
     if (this.isOpen) {
@@ -23,7 +23,7 @@ export class NavBarComponent {
       document.body.style.overflow = 'scroll';
     }
   }
-  updateSelectedSecction(event: Event){
+  updateSelectedSecction(event: Event) {
     console.log((event.target as HTMLElement).dataset['ref']);
     this.secction.emit(Number((event.target as HTMLElement).dataset['ref']));
   }
@@ -31,10 +31,10 @@ export class NavBarComponent {
   @HostListener('window:scroll', [])
   scrollDownAndUp() {
     const currentScrollPosition = document.documentElement.scrollTop;
-    if (currentScrollPosition > this.previousScrollPosition) {
-      this.isVisible = false;
-    } else if (currentScrollPosition < this.previousScrollPosition  || currentScrollPosition === 0) {
+    if (currentScrollPosition < this.previousScrollPosition || currentScrollPosition === 0) {
       this.isVisible = true;
+    } else if (currentScrollPosition > this.previousScrollPosition) {
+      this.isVisible = false;
     }
     // Actualizamos la posición anterior al valor actual del scroll
     this.previousScrollPosition = currentScrollPosition;
